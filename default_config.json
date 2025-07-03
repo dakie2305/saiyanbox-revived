@@ -1,0 +1,16 @@
+{
+  "mod_config_title": [ //Make sure this one exists in locale
+    {
+      "Id": "config_unlock_all_legend_traits",
+      "Type": "SWITCH",
+      "BoolVal": false,
+      "Callback": "NarutoBoxConfig:UnlockLegendTraitsSwitchConfigCallBack"
+    },
+    {
+      "Id": "config_enable_auto_favorite",
+      "Type": "SWITCH",
+      "BoolVal": false,
+      "Callback": "NarutoBoxConfig:AutoFavoriteEnableSwitchConfigCallBack"
+    }
+  ]
+}
