@@ -472,7 +472,7 @@ internal static class CustomTraitActions
         //evolutionary condition
         if (a.data.getAge() >= 85 || a.data.kills > 100)
         {
-            if (Randy.randomChance(0.05f))
+            if (Randy.randomChance(0.1f))
             {
                 a.addTrait("saiyan_true_form");
                 a.data.health += 500;
@@ -485,6 +485,81 @@ internal static class CustomTraitActions
                 a.addTrait("saiyan_true_form");
                 a.data.health += 500;
             }
+        }
+        return true;
+    }
+
+
+    internal static bool SaiyanTEvo(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        //evolutionary condition
+        if (a.data.getAge() >= 95 || a.data.kills > 150)
+        {
+            if (Randy.randomChance(0.1f))
+            {
+                a.addTrait("saiyan_true_form_4");
+                a.data.health += 500;
+            }
+        }
+        if (a.data.health < a.getMaxHealth() / 6)
+        {
+            if (Randy.randomChance(0.01f))
+            {
+                a.addTrait("saiyan_true_form_4");
+                a.data.health += 500;
+            }
+        }
+        return true;
+    }
+
+    internal static bool SaiyanT4Evo(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        //evolutionary condition
+        if (a.data.getAge() >= 115 || a.data.kills > 175)
+        {
+            if (Randy.randomChance(0.1f))
+            {
+                a.addTrait("saiyan_true_form_5");
+                a.data.health += 500;
+            }
+        }
+        if (a.data.health < a.getMaxHealth() / 8)
+        {
+            if (Randy.randomChance(0.01f))
+            {
+                a.addTrait("saiyan_true_form_5");
+                a.data.health += 500;
+            }
+        }
+        return true;
+    }
+
+    internal static bool SaiyanT5Evo(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        //evolutionary condition
+        if (a.data.getAge() >= 200 || a.data.kills > 500)
+        {
+            if (Randy.randomChance(0.1f))
+            {
+                a.addTrait("breaking_limit");
+                a.data.health += 500;
+            }
+        }
+        return true;
+    }
+
+    internal static bool Breaking(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        if (pTarget.a.data.health < (pTarget.a.getMaxHealth() / 7))
+        {
+            pTarget.a.restoreHealth(200);
         }
         return true;
     }
@@ -650,6 +725,22 @@ internal static class CustomTraitActions
             ActorTool.copyUnitToOtherUnit(a, act);
             act.kingdom = pTarget.kingdom;
             act.addTrait("ultra_instinct");
+            act.data.health += 500;
+            return true;
+        }
+        return false;
+    }
+
+    internal static bool SaiyanT4Death(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (Randy.randomChance(0.05f))
+        {
+            Actor a = pTarget.a;
+            var act = World.world.units.createNewUnit(a.asset.id, pTile);
+            ActionLibrary.castLightning(pTarget, pTarget, pTile);
+            ActorTool.copyUnitToOtherUnit(a, act);
+            act.kingdom = pTarget.kingdom;
+            act.addTrait("saiyan_true_form_5");
             act.data.health += 500;
             return true;
         }

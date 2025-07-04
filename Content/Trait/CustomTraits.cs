@@ -456,7 +456,7 @@ namespace SaiyanboxRevived.Content
             legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Damage, 150f);
             legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Armor, 10f);
             legendaryBloodline.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 15f);
-            legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Health, 650f);
+            legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Health, 6500f);
             legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Intelligence, 100f);
             legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Speed, 10f);
             legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Lifespan, 0f);
@@ -484,9 +484,10 @@ namespace SaiyanboxRevived.Content
             saiyanLegendary.base_stats.set(CustomBaseStatsConstant.Damage, 150f);
             saiyanLegendary.base_stats.set(CustomBaseStatsConstant.Armor, 10f);
             saiyanLegendary.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 15f);
-            saiyanLegendary.base_stats.set(CustomBaseStatsConstant.Health, 650f);
+            saiyanLegendary.base_stats.set(CustomBaseStatsConstant.Health, 6500f);
             saiyanLegendary.base_stats.set(CustomBaseStatsConstant.Intelligence, 100f);
-            saiyanLegendary.base_stats.set(CustomBaseStatsConstant.Speed, 75f);
+            saiyanLegendary.base_stats.set(CustomBaseStatsConstant.Speed, 15f);
+            saiyanLegendary.addOpposites(new List<string> { "saiyan_true_form", "saiyan_true_form_4", "saiyan_true_form_5", "breaking_limit" });
 
             saiyanLegendary.action_special_effect = (WorldAction)Delegate.Combine(saiyanLegendary.action_special_effect, new WorldAction(CustomTraitActions.SaiyanLEvo));
 
@@ -508,13 +509,13 @@ namespace SaiyanboxRevived.Content
             };
 
             saiyanTrueForm.base_stats = new BaseStats();
-            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Damage, 1500f);
+            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Damage, 150f);
             saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Armor, 20f);
             saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 30f);
-            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Health, 7500f);
-            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Intelligence, 0f);
-            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Speed, 65f);
+            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Health, 7000f);
+            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Speed, 15f);
             saiyanTrueForm.action_special_effect = (WorldAction)Delegate.Combine(saiyanTrueForm.action_special_effect, new WorldAction(CustomTraitActions.SaiyanTEvo));
+            saiyanTrueForm.addOpposites(new List<string> { "saiyan_legendary", "saiyan_true_form_4", "saiyan_true_form_5", "breaking_limit" });
 
             saiyanTrueForm.unlock(true);
             AssetManager.traits.add(saiyanTrueForm);
@@ -534,16 +535,18 @@ namespace SaiyanboxRevived.Content
             };
 
             saiyanTrueForm4.base_stats = new BaseStats();
-            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Damage, 5000f);
+            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Damage, 200f);
             saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Armor, 25f);
             saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 40f);
-            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Health, 20000f);
+            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Health, 7000f);
             saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Intelligence, 10f);
-            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Speed, 65f);
+            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Speed, 25f);
             saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+            saiyanTrueForm.addOpposites(new List<string> { "saiyan_legendary", "saiyan_true_form", "saiyan_true_form_5", "breaking_limit" });
 
             saiyanTrueForm4.action_death = new WorldAction(CustomTraitActions.SaiyanT4Death);
-            saiyanTrueForm4.action_special_effect = new WorldAction(CustomTraitActions.SaiyanT4Evo);
+            saiyanTrueForm4.action_special_effect = (WorldAction)Delegate.Combine(saiyanTrueForm4.action_special_effect, new WorldAction(CustomTraitActions.SaiyanT4Evo));
+
             saiyanTrueForm4.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
 
             saiyanTrueForm4.unlock(true);
@@ -564,13 +567,14 @@ namespace SaiyanboxRevived.Content
             };
 
             saiyanTrueForm5.base_stats = new BaseStats();
-            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Damage, 10000f);
-            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Armor, 30f);
-            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 100f);
-            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Health, 30000f);
-            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Intelligence, 100f);
-            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Speed, 65f);
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Damage, 200f);
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Armor, 25f);
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 40f);
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Health, 7200f);
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Intelligence, 10f);
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Speed, 25f);
             saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+            saiyanTrueForm5.addOpposites(new List<string> { "saiyan_legendary", "saiyan_true_form", "saiyan_true_form_4", "breaking_limit" });
 
             saiyanTrueForm5.action_special_effect = new WorldAction(CustomTraitActions.SaiyanT5Evo);
             saiyanTrueForm5.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
@@ -593,13 +597,14 @@ namespace SaiyanboxRevived.Content
             };
 
             breakingLimit.base_stats = new BaseStats();
-            breakingLimit.base_stats.set(CustomBaseStatsConstant.Damage, 15000f);
+            breakingLimit.base_stats.set(CustomBaseStatsConstant.Damage, 500f);
             breakingLimit.base_stats.set(CustomBaseStatsConstant.Armor, 35f);
-            breakingLimit.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 150f);
-            breakingLimit.base_stats.set(CustomBaseStatsConstant.Health, 50000f);
+            breakingLimit.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 75f);
+            breakingLimit.base_stats.set(CustomBaseStatsConstant.Health, 10000f);
             breakingLimit.base_stats.set(CustomBaseStatsConstant.Intelligence, 200f);
-            breakingLimit.base_stats.set(CustomBaseStatsConstant.Speed, 75f);
+            breakingLimit.base_stats.set(CustomBaseStatsConstant.Speed, 50f);
             breakingLimit.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+            saiyanTrueForm5.addOpposites(new List<string> { "saiyan_legendary", "saiyan_true_form", "saiyan_true_form_4", "saiyan_true_form_5" });
 
             breakingLimit.action_special_effect = (WorldAction)Delegate.Combine(breakingLimit.action_special_effect, new WorldAction(CustomTraitActions.Breaking));
             breakingLimit.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
