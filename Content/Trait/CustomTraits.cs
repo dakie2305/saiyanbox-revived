@@ -410,7 +410,205 @@ namespace SaiyanboxRevived.Content
             addToLocale(saiyanRose.id, "Saiyan Rose", "The evil god among Saiyans.", "Dark divinity fused with chaos.");
             #endregion
 
+            #region perfect_ultra_instinct
+            ActorTrait perfectUltraInstinct = new ActorTrait()
+            {
+                id = "perfect_ultra_instinct",
+                path_icon = $"{PathToTraitIcon}/Perfect",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId,
+                rarity = Rarity.R3_Legendary
+            };
 
+            perfectUltraInstinct.base_stats = new BaseStats();
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Damage, 750f);
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Armor, 35f);
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 150f);
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Health, 5500f);
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Intelligence, 300f);
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Speed, 25f);
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+            perfectUltraInstinct.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5", "the_fallen", "ultimate", "saiyan_blue", "ultra_instinct", "saiyan_rose" });
+
+            perfectUltraInstinct.action_special_effect = (WorldAction)Delegate.Combine(perfectUltraInstinct.action_special_effect, new WorldAction(CustomTraitActions.PerUl));
+            perfectUltraInstinct.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+
+            perfectUltraInstinct.unlock(true);
+            AssetManager.traits.add(perfectUltraInstinct);
+            addToList(perfectUltraInstinct);
+            addToLocale(perfectUltraInstinct.id, "Perfect Ultra Instinct", "The peak of divine instinct.", "No wasted movement, only victory.");
+            #endregion
+
+            #region legendary_bloodline
+            ActorTrait legendaryBloodline = new ActorTrait()
+            {
+                id = "legendary_bloodline",
+                path_icon = $"{PathToTraitIcon}/BloodlineL",
+                can_be_given = true,
+                rate_inherit = AlwaysChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId
+            };
+
+            legendaryBloodline.base_stats = new BaseStats();
+            legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Damage, 150f);
+            legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Armor, 10f);
+            legendaryBloodline.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 15f);
+            legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Health, 650f);
+            legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Intelligence, 100f);
+            legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Speed, 10f);
+            legendaryBloodline.base_stats.set(CustomBaseStatsConstant.Lifespan, 0f);
+            legendaryBloodline.addOpposites(new List<string> { "bloodline" });
+            legendaryBloodline.action_special_effect = (WorldAction)Delegate.Combine(legendaryBloodline.action_special_effect, new WorldAction(CustomTraitActions.EvoL));
+
+            legendaryBloodline.unlock(true);
+            AssetManager.traits.add(legendaryBloodline);
+            addToList(legendaryBloodline);
+            addToLocale(legendaryBloodline.id, "Legendary Bloodline", "Bloodline of the legendary warrior.", "A rare gift of destructive potential.");
+            #endregion
+
+            #region saiyan_legendary
+            ActorTrait saiyanLegendary = new ActorTrait()
+            {
+                id = "saiyan_legendary",
+                path_icon = $"{PathToTraitIcon}/SaiyanLegendary",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId
+            };
+
+            saiyanLegendary.base_stats = new BaseStats();
+            saiyanLegendary.base_stats.set(CustomBaseStatsConstant.Damage, 150f);
+            saiyanLegendary.base_stats.set(CustomBaseStatsConstant.Armor, 10f);
+            saiyanLegendary.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 15f);
+            saiyanLegendary.base_stats.set(CustomBaseStatsConstant.Health, 650f);
+            saiyanLegendary.base_stats.set(CustomBaseStatsConstant.Intelligence, 100f);
+            saiyanLegendary.base_stats.set(CustomBaseStatsConstant.Speed, 75f);
+
+            saiyanLegendary.action_special_effect = (WorldAction)Delegate.Combine(saiyanLegendary.action_special_effect, new WorldAction(CustomTraitActions.SaiyanLEvo));
+
+            saiyanLegendary.unlock(true);
+            AssetManager.traits.add(saiyanLegendary);
+            addToList(saiyanLegendary);
+            addToLocale(saiyanLegendary.id, "Legendary Saiyan", "The birth of a myth.", "Warrior of unmatched raw power.");
+            #endregion
+
+            #region saiyan_true_form
+            ActorTrait saiyanTrueForm = new ActorTrait()
+            {
+                id = "saiyan_true_form",
+                path_icon = $"{PathToTraitIcon}/TrueForm",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId
+            };
+
+            saiyanTrueForm.base_stats = new BaseStats();
+            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Damage, 1500f);
+            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Armor, 20f);
+            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 30f);
+            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Health, 7500f);
+            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Intelligence, 0f);
+            saiyanTrueForm.base_stats.set(CustomBaseStatsConstant.Speed, 65f);
+            saiyanTrueForm.action_special_effect = (WorldAction)Delegate.Combine(saiyanTrueForm.action_special_effect, new WorldAction(CustomTraitActions.SaiyanTEvo));
+
+            saiyanTrueForm.unlock(true);
+            AssetManager.traits.add(saiyanTrueForm);
+            addToList(saiyanTrueForm);
+            addToLocale(saiyanTrueForm.id, "Saiyan True Form", "Evolved form of legendary strength.", "Brutality without hesitation.");
+            #endregion
+
+            #region saiyan_true_form_4
+            ActorTrait saiyanTrueForm4 = new ActorTrait()
+            {
+                id = "saiyan_true_form_4",
+                path_icon = $"{PathToTraitIcon}/Broly4",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId
+            };
+
+            saiyanTrueForm4.base_stats = new BaseStats();
+            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Damage, 5000f);
+            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Armor, 25f);
+            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 40f);
+            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Health, 20000f);
+            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Intelligence, 10f);
+            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Speed, 65f);
+            saiyanTrueForm4.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+
+            saiyanTrueForm4.action_death = new WorldAction(CustomTraitActions.SaiyanT4Death);
+            saiyanTrueForm4.action_special_effect = new WorldAction(CustomTraitActions.SaiyanT4Evo);
+            saiyanTrueForm4.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+
+            saiyanTrueForm4.unlock(true);
+            AssetManager.traits.add(saiyanTrueForm4);
+            addToList(saiyanTrueForm4);
+            addToLocale(saiyanTrueForm4.id, "Saiyan True Form 4", "Fourth evolution of the legendary form.", "The berserker ascended.");
+            #endregion
+
+            #region saiyan_true_form_5
+            ActorTrait saiyanTrueForm5 = new ActorTrait()
+            {
+                id = "saiyan_true_form_5",
+                path_icon = $"{PathToTraitIcon}/Broly5",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId
+            };
+
+            saiyanTrueForm5.base_stats = new BaseStats();
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Damage, 10000f);
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Armor, 30f);
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 100f);
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Health, 30000f);
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Intelligence, 100f);
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Speed, 65f);
+            saiyanTrueForm5.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+
+            saiyanTrueForm5.action_special_effect = new WorldAction(CustomTraitActions.SaiyanT5Evo);
+            saiyanTrueForm5.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+
+            saiyanTrueForm5.unlock(true);
+            AssetManager.traits.add(saiyanTrueForm5);
+            addToList(saiyanTrueForm5);
+            addToLocale(saiyanTrueForm5.id, "Saiyan True Form 5", "The final phase of the warrior form.", "No limits, no mercy.");
+            #endregion
+
+            #region breaking_limit
+            ActorTrait breakingLimit = new ActorTrait()
+            {
+                id = "breaking_limit",
+                path_icon = $"{PathToTraitIcon}/Breaking",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId
+            };
+
+            breakingLimit.base_stats = new BaseStats();
+            breakingLimit.base_stats.set(CustomBaseStatsConstant.Damage, 15000f);
+            breakingLimit.base_stats.set(CustomBaseStatsConstant.Armor, 35f);
+            breakingLimit.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 150f);
+            breakingLimit.base_stats.set(CustomBaseStatsConstant.Health, 50000f);
+            breakingLimit.base_stats.set(CustomBaseStatsConstant.Intelligence, 200f);
+            breakingLimit.base_stats.set(CustomBaseStatsConstant.Speed, 75f);
+            breakingLimit.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+
+            breakingLimit.action_special_effect = (WorldAction)Delegate.Combine(breakingLimit.action_special_effect, new WorldAction(CustomTraitActions.Breaking));
+            breakingLimit.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+
+            breakingLimit.unlock(true);
+            AssetManager.traits.add(breakingLimit);
+            addToList(breakingLimit);
+            addToLocale(breakingLimit.id, "Breaking Limit", "The strongest Saiyan ever existed!", "Strength beyond the known universe.");
+            #endregion
         }
 
 

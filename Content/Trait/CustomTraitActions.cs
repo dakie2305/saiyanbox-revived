@@ -416,6 +416,78 @@ internal static class CustomTraitActions
         }
         return true;
     }
+    internal static bool PerUl(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        AuraS(pTarget);
+        Resist(pTarget);
+        Remove(pTarget);
+        a.removeTrait("ultra_instinct");
+        a.addTrait("immune");
+        ActionLibrary.restoreHealthOnHit(pTarget, null);
+        return true;
+    }
+
+
+    internal static bool EvoL(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        if (a.data.getAge() >= 18)
+        {
+            HashSet<string> evolutionTraits = new HashSet<string>
+            {
+                "saiyan_legendary",
+                "saiyan_true_form",
+                "saiyan_true_form_4",
+                "saiyan_true_form_5",
+                "breaking_limit",
+            };
+
+            foreach (string traitId in evolutionTraits)
+            {
+                if (a.hasTrait(traitId))
+                    return true;
+            }
+
+            if (a.data.nutrition >= 40)
+            {
+                a.addTrait("saiyan_legendary");
+            }
+        }
+        // Prevent invalid units from evolving
+        HashSet<string> blockedUnits = new HashSet<string> { "skeleton", "ghost", "tumor", "mush", "bioblob" };
+        if (blockedUnits.Contains(a.asset.id))
+        {
+            Prevent(pTarget, pTile);
+        }
+        return true;
+    }
+
+    internal static bool SaiyanLEvo(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        //evolutionary condition
+        if (a.data.getAge() >= 85 || a.data.kills > 100)
+        {
+            if (Randy.randomChance(0.05f))
+            {
+                a.addTrait("saiyan_true_form");
+                a.data.health += 500;
+            }
+        }
+        if (a.data.health < a.getMaxHealth() / 6)
+        {
+            if (Randy.randomChance(0.01f))
+            {
+                a.addTrait("saiyan_true_form");
+                a.data.health += 500;
+            }
+        }
+        return true;
+    }
 
     #endregion
 
@@ -583,6 +655,8 @@ internal static class CustomTraitActions
         }
         return false;
     }
+
+
 
 
 
