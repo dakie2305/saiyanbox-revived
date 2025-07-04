@@ -267,25 +267,25 @@ internal static class CustomTraitActions
         if (pTarget?.a == null || !pTarget.a.isAlive()) return false;
         Actor actor = pTarget.a;
         if (actor.hasTrait("saiyan_4"))
-            pTarget.addStatusEffect("Aura_Red", 20f);
+            pTarget.addStatusEffect("aura_red_effect", 20f);
         if (actor.hasTrait("saiyan_blue"))
-            pTarget.addStatusEffect("Aura_BlueS", 20f);
+            pTarget.addStatusEffect("aura_blues_effect", 20f);
         if (actor.hasTrait("ultra_instinct"))
-            pTarget.addStatusEffect("Aura_Blue", 20f);
+            pTarget.addStatusEffect("aura_blue_effect", 20f);
         if (actor.hasTrait("the_fallen"))
-            pTarget.addStatusEffect("Aura_Fallen", 20f);
+            pTarget.addStatusEffect("aura_fallen_effect", 20f);
         if (actor.hasTrait("saiyan_rose"))
-            pTarget.addStatusEffect("Aura_Rose", 20f);
+            pTarget.addStatusEffect("aura_rose_effect", 20f);
         if (actor.hasTrait("perfect_ultra_instinct"))
-            pTarget.addStatusEffect("Aura_White", 20f);
+            pTarget.addStatusEffect("aura_white_effect", 20f);
         if (actor.hasTrait("saiyan_5"))
-            pTarget.addStatusEffect("Aura_Grey", 20f);
+            pTarget.addStatusEffect("aura_grey_effect", 20f);
         if (actor.hasTrait("ultimate"))
-            pTarget.addStatusEffect("Aura_Black", 20f);
+            pTarget.addStatusEffect("aura_black_effect", 20f);
         if (actor.hasTrait("saiyan_true_form_5"))
-            pTarget.addStatusEffect("Aura_T5", 20f);
+            pTarget.addStatusEffect("aura_t5_effect", 20f);
         if (actor.hasTrait("breaking_limit"))
-            pTarget.addStatusEffect("Aura_Breaking", 20f);
+            pTarget.addStatusEffect("aura_breaking_effect", 20f);
         return true;
     }
 
@@ -362,6 +362,7 @@ internal static class CustomTraitActions
                 a.data.health += 500;
             }
         }
+        AuraS(pTarget);
         return true;
     }
 
@@ -582,7 +583,7 @@ internal static class CustomTraitActions
         {
             if (Randy.randomChance(0.1f))
             {
-                EffectsLibrary.spawn("fx_nuke_flash", actor.current_tile);
+                EffectsLibrary.spawn("fx_plasma_ball_explosion", actor.current_tile);
                 EffectsLibrary.spawnExplosionWave(pTile.posV3, 1f, 1f);
                 World.world.applyForceOnTile(pTarget.current_tile, pByWho: pSelf);
             }
@@ -591,7 +592,7 @@ internal static class CustomTraitActions
         {
             if (Randy.randomChance(0.5f))
             {
-                EffectsLibrary.spawn("fx_nuke_flash", actor.current_tile);
+                EffectsLibrary.spawn("fx_plasma_ball_explosion", actor.current_tile);
                 EffectsLibrary.spawnExplosionWave(pTile.posV3, 1f, 1f);
                 World.world.applyForceOnTile(pTarget.current_tile, pByWho: pSelf);
                 tornadoPunch(pSelf, pTarget, pTile);
@@ -601,7 +602,7 @@ internal static class CustomTraitActions
         {
             if (Randy.randomChance(0.7f))
             {
-                EffectsLibrary.spawn("fx_nuke_flash", actor.current_tile);
+                EffectsLibrary.spawn("fx_plasma_ball_explosion", actor.current_tile);
                 EffectsLibrary.spawnExplosionWave(pTile.posV3, 1f, 1f);
                 World.world.applyForceOnTile(pTarget.current_tile, pByWho: pSelf);
                 tornadoPunch(pSelf, pTarget, pTile);
@@ -611,7 +612,7 @@ internal static class CustomTraitActions
         }
         else
         {
-            EffectsLibrary.spawn("fx_nuke_flash", actor.current_tile);
+            EffectsLibrary.spawn("fx_plasma_ball_explosion", actor.current_tile);
             EffectsLibrary.spawnExplosionWave(pTile.posV3, 1f, 1f);
             World.world.applyForceOnTile(pTarget.current_tile, pByWho:pSelf);
             tornadoPunch(pSelf, pTarget, pTile);

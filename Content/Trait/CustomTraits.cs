@@ -59,9 +59,6 @@ namespace SaiyanboxRevived.Content
             LM.AddToCurrentLocale($"{group2.name}", $"Saiyan Legends");
         }
 
-
-
-
         private static void loadCustomTrait()
         {
             #region bloodline
@@ -234,35 +231,6 @@ namespace SaiyanboxRevived.Content
             addToLocale(saiyan4.id, "Saiyan 4", "Fourth transformation of the Saiyan warrior.", "Ferocious primal power returns with control.");
             #endregion
 
-            #region the_fallen
-            ActorTrait theFallen = new ActorTrait()
-            {
-                id = "the_fallen",
-                path_icon = $"{PathToTraitIcon}/Fallen",
-                can_be_given = true,
-                rate_inherit = NoChance,
-                rate_birth = NoChance,
-                group_id = TraitGroupId,
-                rarity = Rarity.R2_Epic
-            };
-
-            theFallen.base_stats = new BaseStats();
-            theFallen.base_stats.set(CustomBaseStatsConstant.Damage, 300);
-            theFallen.base_stats.set(CustomBaseStatsConstant.Armor, 30f);
-            theFallen.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 50f);
-            theFallen.base_stats.set(CustomBaseStatsConstant.Health, 4000f);
-            theFallen.base_stats.set(CustomBaseStatsConstant.Intelligence, 100f);
-            theFallen.base_stats.set(CustomBaseStatsConstant.Speed, 20f);
-
-            theFallen.action_special_effect = (WorldAction)Delegate.Combine(theFallen.action_special_effect, new WorldAction(CustomTraitActions.Fall));
-            theFallen.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
-            theFallen.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4" });
-
-            theFallen.unlock(true);
-            AssetManager.traits.add(theFallen);
-            addToList(theFallen);
-            addToLocale(theFallen.id, "The Fallen", "The one who chose the path of darkness.", "Corrupted power driven by hatred.");
-            #endregion
 
             #region saiyan_5
             ActorTrait saiyan5 = new ActorTrait()
@@ -296,36 +264,6 @@ namespace SaiyanboxRevived.Content
 
 
 
-            #region perfect_ultra_instinct
-            ActorTrait perfectUltraInstinct = new ActorTrait()
-            {
-                id = "perfect_ultra_instinct",
-                path_icon = $"{PathToTraitIcon}/Perfect",
-                can_be_given = true,
-                rate_inherit = NoChance,
-                rate_birth = NoChance,
-                group_id = TraitGroupId,
-                rarity = Rarity.R3_Legendary
-            };
-
-            perfectUltraInstinct.base_stats = new BaseStats();
-            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Damage, 750f);
-            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Armor, 35f);
-            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 150f);
-            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Health, 5500f);
-            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Intelligence, 300f);
-            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Speed, 25f);
-            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
-            perfectUltraInstinct.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5", "the_fallen", "ultimate", "saiyan_blue", "ultra_instinct", "saiyan_rose" });
-
-            perfectUltraInstinct.action_special_effect = (WorldAction)Delegate.Combine(perfectUltraInstinct.action_special_effect, new WorldAction(CustomTraitActions.PerUl));
-            perfectUltraInstinct.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
-
-            perfectUltraInstinct.unlock(true);
-            AssetManager.traits.add(perfectUltraInstinct);
-            addToList(perfectUltraInstinct);
-            addToLocale(perfectUltraInstinct.id, "Perfect Ultra Instinct", "The peak of divine instinct.", "No wasted movement, only victory.");
-            #endregion
 
             #region legendary_bloodline
             ActorTrait legendaryBloodline = new ActorTrait()
@@ -498,7 +436,11 @@ namespace SaiyanboxRevived.Content
             ultimate.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
             ultimate.action_special_effect = (WorldAction)Delegate.Combine(ultimate.action_special_effect, new WorldAction(CustomTraitActions.Ulti));
             ultimate.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
-            ultimate.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5", "the_fallen", "ultra_instinct", "saiyan_blue" });
+            ultimate.addOpposites(new List<string> {
+                "saiyan", "saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5",
+                "the_fallen", "ultra_instinct", "saiyan_blue", "perfect_ultra_instinct",
+                "saiyan_rose", "breaking_limit"
+            });
 
             ultimate.unlock(SaiyanboxConfig.UnlockLegendTraits);
             AssetManager.traits.add(ultimate);
@@ -515,7 +457,7 @@ namespace SaiyanboxRevived.Content
                 rate_inherit = NoChance,
                 rate_birth = NoChance,
                 group_id = TraitGroupIdLegend,
-                rarity = Rarity.R2_Epic
+                rarity = Rarity.R3_Legendary
             };
 
             saiyanBlue.base_stats = new BaseStats();
@@ -529,7 +471,11 @@ namespace SaiyanboxRevived.Content
             saiyanBlue.action_special_effect = (WorldAction)Delegate.Combine(saiyanBlue.action_special_effect, new WorldAction(CustomTraitActions.SaiyanBlueEvo));
             saiyanBlue.action_death = new WorldAction(CustomTraitActions.SaiyanBlueDeath);
             saiyanBlue.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
-            saiyanBlue.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5", "the_fallen", "ultra_instinct", "ultimate", });
+            saiyanBlue.addOpposites(new List<string> {
+                "saiyan", "saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5",
+                "the_fallen", "ultra_instinct", "ultimate", "perfect_ultra_instinct",
+                "saiyan_rose", "breaking_limit"
+            });
 
             saiyanBlue.unlock(SaiyanboxConfig.UnlockLegendTraits);
             AssetManager.traits.add(saiyanBlue);
@@ -560,13 +506,85 @@ namespace SaiyanboxRevived.Content
             ultraInstinct.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
             ultraInstinct.action_special_effect = (WorldAction)Delegate.Combine(ultraInstinct.action_special_effect, new WorldAction(CustomTraitActions.Ultra));
             ultraInstinct.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
-            ultraInstinct.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5", "the_fallen", "ultimate", "saiyan_blue" });
-
+            ultraInstinct.addOpposites(new List<string> {
+                "saiyan", "saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5",
+                "the_fallen", "ultimate", "saiyan_blue", "perfect_ultra_instinct",
+                "saiyan_rose", "breaking_limit"
+            });
             ultraInstinct.unlock(SaiyanboxConfig.UnlockLegendTraits);
             AssetManager.traits.add(ultraInstinct);
             addToList(ultraInstinct);
             addToLocale(ultraInstinct.id, "Ultra Instinct", "The god of fighting instinct.", "Instinctive movement and divine combat prowess.");
             #endregion
+
+            #region perfect_ultra_instinct
+            ActorTrait perfectUltraInstinct = new ActorTrait()
+            {
+                id = "perfect_ultra_instinct",
+                path_icon = $"{PathToTraitIcon}/Perfect",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupIdLegend,
+                rarity = Rarity.R3_Legendary
+            };
+
+            perfectUltraInstinct.base_stats = new BaseStats();
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Damage, 750f);
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Armor, 35f);
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 150f);
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Health, 5500f);
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Intelligence, 300f);
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Speed, 25f);
+            perfectUltraInstinct.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+            perfectUltraInstinct.addOpposites(new List<string> {
+                "saiyan", "saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5",
+                "the_fallen", "ultimate", "saiyan_blue", "ultra_instinct",
+                "saiyan_rose", "breaking_limit"
+            });
+            perfectUltraInstinct.action_special_effect = (WorldAction)Delegate.Combine(perfectUltraInstinct.action_special_effect, new WorldAction(CustomTraitActions.PerUl));
+            perfectUltraInstinct.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+
+            perfectUltraInstinct.unlock(true);
+            AssetManager.traits.add(perfectUltraInstinct);
+            addToList(perfectUltraInstinct);
+            addToLocale(perfectUltraInstinct.id, "Perfect Ultra Instinct", "The peak of divine instinct.", "No wasted movement, only victory.");
+            #endregion
+
+            #region the_fallen
+            ActorTrait theFallen = new ActorTrait()
+            {
+                id = "the_fallen",
+                path_icon = $"{PathToTraitIcon}/Fallen",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId,
+                rarity = Rarity.R3_Legendary
+            };
+
+            theFallen.base_stats = new BaseStats();
+            theFallen.base_stats.set(CustomBaseStatsConstant.Damage, 300);
+            theFallen.base_stats.set(CustomBaseStatsConstant.Armor, 30f);
+            theFallen.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 50f);
+            theFallen.base_stats.set(CustomBaseStatsConstant.Health, 4000f);
+            theFallen.base_stats.set(CustomBaseStatsConstant.Intelligence, 100f);
+            theFallen.base_stats.set(CustomBaseStatsConstant.Speed, 20f);
+
+            theFallen.action_special_effect = (WorldAction)Delegate.Combine(theFallen.action_special_effect, new WorldAction(CustomTraitActions.Fall));
+            theFallen.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+            theFallen.addOpposites(new List<string> {
+                "saiyan", "saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4",
+                "ultimate", "saiyan_blue", "ultra_instinct", "perfect_ultra_instinct",
+                "saiyan_rose", "breaking_limit"
+            });
+
+            theFallen.unlock(true);
+            AssetManager.traits.add(theFallen);
+            addToList(theFallen);
+            addToLocale(theFallen.id, "The Fallen", "The one who chose the path of darkness.", "Corrupted power driven by hatred.");
+            #endregion
+
 
             #region saiyan_rose
             ActorTrait saiyanRose = new ActorTrait()
@@ -589,7 +607,11 @@ namespace SaiyanboxRevived.Content
             saiyanRose.base_stats.set(CustomBaseStatsConstant.Speed, 25f);
             saiyanRose.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
             saiyanRose.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
-            saiyanRose.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5", "the_fallen", "ultimate", "saiyan_blue", "ultra_instinct" });
+            saiyanRose.addOpposites(new List<string> {
+                "saiyan", "saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5",
+                "the_fallen", "ultimate", "saiyan_blue", "ultra_instinct",
+                "perfect_ultra_instinct", "breaking_limit"
+            });
 
             saiyanRose.action_special_effect = (WorldAction)Delegate.Combine(saiyanRose.action_special_effect, new WorldAction(CustomTraitActions.Rose));
             saiyanRose.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
@@ -608,7 +630,8 @@ namespace SaiyanboxRevived.Content
                 can_be_given = true,
                 rate_inherit = NoChance,
                 rate_birth = NoChance,
-                group_id = TraitGroupIdLegend
+                group_id = TraitGroupIdLegend,
+                rarity = Rarity.R3_Legendary,
             };
 
             breakingLimit.base_stats = new BaseStats();
@@ -619,7 +642,11 @@ namespace SaiyanboxRevived.Content
             breakingLimit.base_stats.set(CustomBaseStatsConstant.Intelligence, 200f);
             breakingLimit.base_stats.set(CustomBaseStatsConstant.Speed, 50f);
             breakingLimit.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
-            breakingLimit.addOpposites(new List<string> { "saiyan_legendary", "saiyan_true_form", "saiyan_true_form_4", "saiyan_true_form_5" });
+            breakingLimit.addOpposites(new List<string> {
+                "saiyan_legendary", "saiyan_true_form", "saiyan_true_form_4", "saiyan_true_form_5",
+                "ultimate", "saiyan_blue", "ultra_instinct", "perfect_ultra_instinct",
+                "the_fallen", "saiyan_rose"
+            });
 
             breakingLimit.action_special_effect = (WorldAction)Delegate.Combine(breakingLimit.action_special_effect, new WorldAction(CustomTraitActions.Breaking));
             breakingLimit.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);

@@ -26,5 +26,6 @@ public class SaiyanboxMain : BasicMod<SaiyanboxMain>, IReloadable
     {
         LogInfo("SaiyanboxMain Starting Up And Is Running!");
         CustomTraits.Init();
+        CustomStatusEffects.Init();
     }
 }
