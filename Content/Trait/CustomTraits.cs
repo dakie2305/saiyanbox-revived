@@ -99,9 +99,8 @@ namespace SaiyanboxRevived.Content
             saiyan.base_stats.set(CustomBaseStatsConstant.Health, 1250f);
             saiyan.base_stats.set(CustomBaseStatsConstant.Intelligence, 20f);
             saiyan.base_stats.set(CustomBaseStatsConstant.Speed, 5f);
-
-            saiyan.action_special_effect = new WorldAction(CustomTraitActions.SaiyanEvo);
-            saiyan.addOpposites(new List<string> { $"saiyan_1", $"saiyan_2" });
+            saiyan.action_special_effect = (WorldAction)Delegate.Combine(saiyan.action_special_effect, new WorldAction(CustomTraitActions.SaiyanEvo));
+            saiyan.addOpposites(new List<string> { $"saiyan_1", $"saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5" });
 
             saiyan.unlock(true);
             AssetManager.traits.add(saiyan);
@@ -127,10 +126,9 @@ namespace SaiyanboxRevived.Content
             saiyan1.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 5f);
             saiyan1.base_stats.set(CustomBaseStatsConstant.Health, 2500f);
             saiyan1.base_stats.set(CustomBaseStatsConstant.Intelligence, 40f);
-            saiyan1.base_stats.set(CustomBaseStatsConstant.Speed, 50f);
-
-            saiyan1.action_special_effect = new WorldAction(CustomTraitActions.Saiyan1Evo);
-            saiyan1.addOpposites(new List<string> { $"saiyan", $"saiyan_2" });
+            saiyan1.base_stats.set(CustomBaseStatsConstant.Speed, 5f);
+            saiyan1.action_special_effect = (WorldAction)Delegate.Combine(saiyan1.action_special_effect, new WorldAction(CustomTraitActions.Saiyan1Evo));
+            saiyan1.addOpposites(new List<string> { $"saiyan", $"saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5" });
 
             saiyan1.unlock(true);
             AssetManager.traits.add(saiyan1);
@@ -156,10 +154,9 @@ namespace SaiyanboxRevived.Content
             saiyan2.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 10f);
             saiyan2.base_stats.set(CustomBaseStatsConstant.Health, 2500f);
             saiyan2.base_stats.set(CustomBaseStatsConstant.Intelligence, 100f);
-            saiyan2.base_stats.set(CustomBaseStatsConstant.Speed, 50f);
-
-            saiyan2.action_special_effect = new WorldAction(CustomTraitActions.Saiyan2Evo);
-            saiyan2.addOpposites(new List<string> { $"saiyan", $"saiyan_1" });
+            saiyan2.base_stats.set(CustomBaseStatsConstant.Speed, 5f);
+            saiyan2.action_special_effect = (WorldAction)Delegate.Combine(saiyan2.action_special_effect, new WorldAction(CustomTraitActions.Saiyan2Evo));
+            saiyan2.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_3", "saiyan_4", "saiyan_5" });
 
             saiyan2.unlock(true);
             AssetManager.traits.add(saiyan2);
@@ -167,11 +164,131 @@ namespace SaiyanboxRevived.Content
             addToLocale(saiyan2.id, "Saiyan 2", "Second transformation of the Saiyan warrior.", "Even greater power achieved through intense combat.");
             #endregion
 
+            #region saiyan_3
+            ActorTrait saiyan3 = new ActorTrait()
+            {
+                id = "saiyan_3",
+                path_icon = $"{PathToTraitIcon}/Saiyan3",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId,
+                rarity = Rarity.R3_Legendary
+            };
+
+            saiyan3.base_stats = new BaseStats();
+            saiyan3.base_stats.set(CustomBaseStatsConstant.Damage, 100f);
+            saiyan3.base_stats.set(CustomBaseStatsConstant.Armor, 20f);
+            saiyan3.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 25f);
+            saiyan3.base_stats.set(CustomBaseStatsConstant.Health, 3000f);
+            saiyan3.base_stats.set(CustomBaseStatsConstant.Intelligence, 160f);
+            saiyan3.base_stats.set(CustomBaseStatsConstant.Speed, 10f);
+            saiyan3.base_stats.set(CustomBaseStatsConstant.Mass, 80f);
+
+            saiyan3.action_special_effect = (WorldAction)Delegate.Combine(saiyan3.action_special_effect, new WorldAction(CustomTraitActions.Saiyan3Evo));
+            saiyan3.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+            saiyan3.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_4", "saiyan_5" });
+
+            saiyan3.unlock(true);
+            AssetManager.traits.add(saiyan3);
+            addToList(saiyan3);
+            addToLocale(saiyan3.id, "Saiyan 3", "Third transformation of the Saiyan warrior.", "Unleashed power through raw rage.");
+            #endregion
+
+            #region saiyan_4
+            ActorTrait saiyan4 = new ActorTrait()
+            {
+                id = "saiyan_4",
+                path_icon = $"{PathToTraitIcon}/Saiyan4",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId,
+                rarity = Rarity.R1_Rare
+            };
+
+            saiyan4.base_stats = new BaseStats();
+            saiyan4.base_stats.set(CustomBaseStatsConstant.Damage, 250f);
+            saiyan4.base_stats.set(CustomBaseStatsConstant.Armor, 25f);
+            saiyan4.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 50f);
+            saiyan4.base_stats.set(CustomBaseStatsConstant.Health, 4000f);
+            saiyan4.base_stats.set(CustomBaseStatsConstant.Intelligence, 180f);
+            saiyan4.base_stats.set(CustomBaseStatsConstant.Speed, 15f);
+
+            saiyan4.action_special_effect = (WorldAction)Delegate.Combine(saiyan4.action_special_effect, new WorldAction(CustomTraitActions.Saiyan4Evo));
+            saiyan4.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+            saiyan4.action_death = new WorldAction(CustomTraitActions.Saiyan4Death);
+            saiyan4.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_3", "saiyan_2", "saiyan_5" });
+
+            saiyan4.unlock(true);
+            AssetManager.traits.add(saiyan4);
+            addToList(saiyan4);
+            addToLocale(saiyan4.id, "Saiyan 4", "Fourth transformation of the Saiyan warrior.", "Ferocious primal power returns with control.");
+            #endregion
+
+            #region the_fallen
+            ActorTrait theFallen = new ActorTrait()
+            {
+                id = "the_fallen",
+                path_icon = $"{PathToTraitIcon}/Fallen",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId,
+                rarity = Rarity.R2_Epic
+            };
+
+            theFallen.base_stats = new BaseStats();
+            theFallen.base_stats.set(CustomBaseStatsConstant.Damage, 300);
+            theFallen.base_stats.set(CustomBaseStatsConstant.Armor, 30f);
+            theFallen.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 50f);
+            theFallen.base_stats.set(CustomBaseStatsConstant.Health, 4000f);
+            theFallen.base_stats.set(CustomBaseStatsConstant.Intelligence, 100f);
+            theFallen.base_stats.set(CustomBaseStatsConstant.Speed, 20f);
+
+            theFallen.action_special_effect = (WorldAction)Delegate.Combine(theFallen.action_special_effect, new WorldAction(CustomTraitActions.Fall));
+            theFallen.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+            theFallen.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4" });
+
+            theFallen.unlock(true);
+            AssetManager.traits.add(theFallen);
+            addToList(theFallen);
+            addToLocale(theFallen.id, "The Fallen", "The one who chose the path of darkness.", "Corrupted power driven by hatred.");
+            #endregion
+
+            #region saiyan_5
+            ActorTrait saiyan5 = new ActorTrait()
+            {
+                id = "saiyan_5",
+                path_icon = $"{PathToTraitIcon}/Saiyan5",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId,
+                rarity = Rarity.R1_Rare
+            };
+
+            saiyan5.base_stats = new BaseStats();
+            saiyan5.base_stats.set(CustomBaseStatsConstant.Damage, 5000f);
+            saiyan5.base_stats.set(CustomBaseStatsConstant.Armor, 30f);
+            saiyan5.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 100f);
+            saiyan5.base_stats.set(CustomBaseStatsConstant.Health, 25000f);
+            saiyan5.base_stats.set(CustomBaseStatsConstant.Intelligence, 200f);
+            saiyan5.base_stats.set(CustomBaseStatsConstant.Speed, 75f);
+            saiyan5.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+
+            saiyan5.action_special_effect = new WorldAction(CustomTraitActions.Saiyan5Evo);
+            saiyan5.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+            saiyan5.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "the_fallen" });
+
+            saiyan5.unlock(true);
+            AssetManager.traits.add(saiyan5);
+            addToList(saiyan5);
+            addToLocale(saiyan5.id, "Saiyan 5", "The pinnacle of Saiyan evolution.", "Ultimate form achieved through transcendent mastery.");
+            #endregion
 
 
         }
-
-
 
 
         private static void addToLocale(string id, string name, string description, string description_2 = "")
