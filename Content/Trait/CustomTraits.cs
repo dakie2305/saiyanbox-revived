@@ -269,15 +269,14 @@ namespace SaiyanboxRevived.Content
             };
 
             saiyan5.base_stats = new BaseStats();
-            saiyan5.base_stats.set(CustomBaseStatsConstant.Damage, 5000f);
+            saiyan5.base_stats.set(CustomBaseStatsConstant.Damage, 400f);
             saiyan5.base_stats.set(CustomBaseStatsConstant.Armor, 30f);
-            saiyan5.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 100f);
-            saiyan5.base_stats.set(CustomBaseStatsConstant.Health, 25000f);
+            saiyan5.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 75f);
+            saiyan5.base_stats.set(CustomBaseStatsConstant.Health, 4000f);
             saiyan5.base_stats.set(CustomBaseStatsConstant.Intelligence, 200f);
-            saiyan5.base_stats.set(CustomBaseStatsConstant.Speed, 75f);
+            saiyan5.base_stats.set(CustomBaseStatsConstant.Speed, 20f);
             saiyan5.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
-
-            saiyan5.action_special_effect = new WorldAction(CustomTraitActions.Saiyan5Evo);
+            saiyan5.action_special_effect = (WorldAction)Delegate.Combine(saiyan5.action_special_effect, new WorldAction(CustomTraitActions.Saiyan5Evo));
             saiyan5.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
             saiyan5.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "the_fallen" });
 
@@ -285,6 +284,130 @@ namespace SaiyanboxRevived.Content
             AssetManager.traits.add(saiyan5);
             addToList(saiyan5);
             addToLocale(saiyan5.id, "Saiyan 5", "The pinnacle of Saiyan evolution.", "Ultimate form achieved through transcendent mastery.");
+            #endregion
+
+            #region ultimate
+            ActorTrait ultimate = new ActorTrait()
+            {
+                id = "ultimate",
+                path_icon = $"{PathToTraitIcon}/Ultimate",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId,
+                rarity = Rarity.R3_Legendary
+            };
+
+            ultimate.base_stats = new BaseStats();
+            ultimate.base_stats.set(CustomBaseStatsConstant.Damage, 500f);
+            ultimate.base_stats.set(CustomBaseStatsConstant.Armor, 35f);
+            ultimate.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 75f);
+            ultimate.base_stats.set(CustomBaseStatsConstant.Health, 5000f);
+            ultimate.base_stats.set(CustomBaseStatsConstant.Intelligence, 200f);
+            ultimate.base_stats.set(CustomBaseStatsConstant.Speed, 25f);
+            ultimate.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+            ultimate.action_special_effect = (WorldAction)Delegate.Combine(ultimate.action_special_effect, new WorldAction(CustomTraitActions.Ulti));
+            ultimate.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+            ultimate.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5", "the_fallen", "ultra_instinct", "saiyan_blue" });
+
+            ultimate.unlock(true);
+            AssetManager.traits.add(ultimate);
+            addToList(ultimate);
+            addToLocale(ultimate.id, "Ultimate", "Strongest bloodline of the Saiyan race.", "Unmatched strength and instinct combined.");
+            #endregion
+
+            #region saiyan_blue
+            ActorTrait saiyanBlue = new ActorTrait()
+            {
+                id = "saiyan_blue",
+                path_icon = $"{PathToTraitIcon}/SaiyanBlue",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId,
+                rarity = Rarity.R2_Epic
+            };
+
+            saiyanBlue.base_stats = new BaseStats();
+            saiyanBlue.base_stats.set(CustomBaseStatsConstant.Damage, 450f);
+            saiyanBlue.base_stats.set(CustomBaseStatsConstant.Armor, 35f);
+            saiyanBlue.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 75f);
+            saiyanBlue.base_stats.set(CustomBaseStatsConstant.Health, 4000f);
+            saiyanBlue.base_stats.set(CustomBaseStatsConstant.Intelligence, 200f);
+            saiyanBlue.base_stats.set(CustomBaseStatsConstant.Speed, 25f);
+            saiyanBlue.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+            saiyanBlue.action_special_effect = (WorldAction)Delegate.Combine(saiyanBlue.action_special_effect, new WorldAction(CustomTraitActions.SaiyanBlueEvo));
+            saiyanBlue.action_death = new WorldAction(CustomTraitActions.SaiyanBlueDeath);
+            saiyanBlue.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+            saiyanBlue.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5", "the_fallen", "ultra_instinct", "ultimate", });
+
+            saiyanBlue.unlock(true);
+            AssetManager.traits.add(saiyanBlue);
+            addToList(saiyanBlue);
+            addToLocale(saiyanBlue.id, "Saiyan Blue", "Another path of Saiyan transformation.", "God-like strength through divine training.");
+            #endregion
+
+            #region ultra_instinct
+            ActorTrait ultraInstinct = new ActorTrait()
+            {
+                id = "ultra_instinct",
+                path_icon = $"{PathToTraitIcon}/UltraInstinct",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId,
+                rarity = Rarity.R3_Legendary
+            };
+
+            ultraInstinct.base_stats = new BaseStats();
+            ultraInstinct.base_stats.set(CustomBaseStatsConstant.Damage, 550f);
+            ultraInstinct.base_stats.set(CustomBaseStatsConstant.Armor, 35f);
+            ultraInstinct.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 75f);
+            ultraInstinct.base_stats.set(CustomBaseStatsConstant.Health, 5000f);
+            ultraInstinct.base_stats.set(CustomBaseStatsConstant.Intelligence, 200f);
+            ultraInstinct.base_stats.set(CustomBaseStatsConstant.Speed, 25f);
+            ultraInstinct.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+            ultraInstinct.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+            ultraInstinct.action_special_effect = (WorldAction)Delegate.Combine(ultraInstinct.action_special_effect, new WorldAction(CustomTraitActions.Ultra));
+            ultraInstinct.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+            ultraInstinct.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5", "the_fallen", "ultimate", "saiyan_blue" });
+
+            ultraInstinct.unlock(true);
+            AssetManager.traits.add(ultraInstinct);
+            addToList(ultraInstinct);
+            addToLocale(ultraInstinct.id, "Ultra Instinct", "The god of fighting instinct.", "Instinctive movement and divine combat prowess.");
+            #endregion
+
+            #region saiyan_rose
+            ActorTrait saiyanRose = new ActorTrait()
+            {
+                id = "saiyan_rose",
+                path_icon = $"{PathToTraitIcon}/SaiyanRose",
+                can_be_given = true,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupId,
+                rarity = Rarity.R3_Legendary
+            };
+
+            saiyanRose.base_stats = new BaseStats();
+            saiyanRose.base_stats.set(CustomBaseStatsConstant.Damage, 550f);
+            saiyanRose.base_stats.set(CustomBaseStatsConstant.Armor, 35f);
+            saiyanRose.base_stats.set(CustomBaseStatsConstant.AttackSpeed, 75f);
+            saiyanRose.base_stats.set(CustomBaseStatsConstant.Health, 5000f);
+            saiyanRose.base_stats.set(CustomBaseStatsConstant.Intelligence, 200f);
+            saiyanRose.base_stats.set(CustomBaseStatsConstant.Speed, 25f);
+            saiyanRose.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+            saiyanRose.base_stats.set(CustomBaseStatsConstant.Mass, 100f);
+            saiyanRose.addOpposites(new List<string> { $"saiyan", $"saiyan_1", "saiyan_2", "saiyan_3", "saiyan_4", "saiyan_5", "the_fallen", "ultimate", "saiyan_blue", "ultra_instinct" });
+
+            saiyanRose.action_special_effect = (WorldAction)Delegate.Combine(saiyanRose.action_special_effect, new WorldAction(CustomTraitActions.Rose));
+            saiyanRose.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+            
+            saiyanRose.unlock(true);
+            AssetManager.traits.add(saiyanRose);
+            addToList(saiyanRose);
+            addToLocale(saiyanRose.id, "Saiyan Rose", "The evil god among Saiyans.", "Dark divinity fused with chaos.");
             #endregion
 
 

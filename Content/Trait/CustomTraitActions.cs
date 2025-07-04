@@ -289,6 +289,134 @@ internal static class CustomTraitActions
         return true;
     }
 
+    public static bool Remove(BaseSimObject pTarget, WorldTile pTile = null)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        a.removeTrait("cursed");
+        a.removeTrait("crippled");
+        a.removeTrait("eyepatch");
+        a.removeTrait("weak");
+        a.removeTrait("skin_burns");
+        a.removeTrait("slow");
+        a.removeTrait("fat");
+        a.removeTrait("madness");
+        a.removeTrait("infected");
+        return true;
+    }
+
+    public static bool Resist(BaseSimObject pTarget, WorldTile pTile = null)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        a.addTrait("fire_proof");
+        a.addTrait("freeze_proof");
+        a.addTrait("acid_proof");
+        a.addTrait("poison_immune");
+        a.addTrait("strong_minded");
+        a.addTrait("immune");
+        return true;
+    }
+
+    internal static bool Ulti(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        if (a != null)
+        {
+            Remove(pTarget);
+            AuraS(pTarget);
+            Resist(pTarget);
+            if (Randy.randomChance(0.15f))
+            {
+                ActionLibrary.regenerationEffect(pTarget, pTile);
+            }
+            if (a.data.health < (a.getMaxHealth() / 4))
+            {
+                a.data.health += 500;
+            }
+        }
+        return true;
+    }
+
+    internal static bool SaiyanBlueEvo(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        //evolutionary condition
+        if (a.data.getAge() >= 150 || a.data.kills > 500)
+        {
+            if (Randy.randomChance(0.05f))
+            {
+                a.addTrait("saiyan_rose");
+                a.data.health += 500;
+
+            }
+        }
+
+        if (a.data.health < a.getMaxHealth() / 10)
+        {
+            if (Randy.randomChance(0.01f))
+            {
+                a.addTrait("saiyan_rose");
+                a.data.health += 500;
+            }
+        }
+        return true;
+    }
+
+    internal static bool Ultra(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        Remove(pTarget);
+        Resist(pTarget);
+        AuraS(pTarget);
+        a.removeTrait("saiyan_blue");
+        a.addTrait("immune");
+        //evolutionary condition
+        if (a.data.getAge() >= 150 || a.data.kills > 500)
+        {
+            if (Randy.randomChance(0.05f))
+            {
+                a.addTrait("perfect_ultra_instinct");
+                a.data.health += 500;
+
+            }
+        }
+
+        if (a.data.health < a.getMaxHealth() / 10)
+        {
+            if (Randy.randomChance(0.01f))
+            {
+                a.addTrait("perfect_ultra_instinct");
+                a.data.health += 500;
+            }
+        }
+        return true;
+    }
+
+    internal static bool Rose(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        Resist(pTarget);
+        AuraS(pTarget);
+        a.addTrait("immune");
+        a.addTrait("bloodlust");
+        a.addTrait("evil");
+        if (Randy.randomChance(0.015f))
+        {
+            ActionLibrary.restoreHealthOnHit(pTarget, pTarget);
+        }
+
+        if (a.data.getAge() >= 300 && a.data.getAge() < 500 && a.data.kills < 100)
+        {
+            a.addTrait("madness");
+        }
+        return true;
+    }
+
     #endregion
 
     #region Attack Effect
@@ -379,13 +507,12 @@ internal static class CustomTraitActions
         return false;
     }
 
+
     #endregion
 
 
 
     #region Custom Function
-
-
     public static bool teleportToSpecificLocation(BaseSimObject pSelf, BaseSimObject pTarget, WorldTile pTile, string text = "fx_teleport_blue")
     {
         if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
@@ -441,8 +568,21 @@ internal static class CustomTraitActions
         return false;
     }
 
-
-
+    internal static bool SaiyanBlueDeath(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (Randy.randomChance(0.05f))
+        {
+            Actor a = pTarget.a;
+            var act = World.world.units.createNewUnit(a.asset.id, pTile);
+            ActionLibrary.castLightning(pTarget, pTarget, pTile);
+            ActorTool.copyUnitToOtherUnit(a, act);
+            act.kingdom = pTarget.kingdom;
+            act.addTrait("ultra_instinct");
+            act.data.health += 500;
+            return true;
+        }
+        return false;
+    }
 
 
 
