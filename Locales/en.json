@@ -6,4 +6,7 @@
   "config_unlock_all_legend_traits Description": "If enabled, all legend traits will be unlocked and can be given freely. Restart the game so new changes can take effect!",
   "config_enable_auto_favorite Description": "If enabled, all legend traits will be auto favorite! Favorite can not be removed unless this is disabled. Restart the game so new changes can take effect!",
 
+  //Tab
+  "saiyanbox_revived_tab": "Saiyanbox Unit",
+  "saiyanbox_revived_tab_description": "Contains all Saiyanbox Units to spawn in the world!"
 }
