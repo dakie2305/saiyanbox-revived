@@ -1,11 +1,11 @@
-﻿using SaiyanboxRevised;
+﻿using SaiyanboxRevived;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SaiyanboxRevised.Content
+namespace SaiyanboxRevived.Content
 {
     public class SaiyanboxConfig
     {

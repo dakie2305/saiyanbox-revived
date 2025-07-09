@@ -1,15 +1,14 @@
 using HarmonyLib;
-using SaiyanboxRevised.Content;
 using NeoModLoader.api;
 using NeoModLoader.api.attributes;
 using NeoModLoader.General;
+using SaiyanboxRevived.Content;
 using System;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
-using SaiyanboxRevived.Content;
 
-namespace SaiyanboxRevised;
+namespace SaiyanboxRevived;
 
 public class SaiyanboxMain : BasicMod<SaiyanboxMain>, IReloadable
 {
@@ -27,6 +26,7 @@ public class SaiyanboxMain : BasicMod<SaiyanboxMain>, IReloadable
         LogInfo("SaiyanboxMain Starting Up And Is Running!");
         CustomTraits.Init();
         CustomStatusEffects.Init();
+        CustomUnits.Init();
         CustomTabsAndButtons.Init();
     }
 }

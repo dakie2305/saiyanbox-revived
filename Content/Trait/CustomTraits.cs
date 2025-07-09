@@ -1,6 +1,6 @@
 ﻿using NeoModLoader.api.attributes;
 using NeoModLoader.General;
-using SaiyanboxRevised.Content;
+using SaiyanboxRevived.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;

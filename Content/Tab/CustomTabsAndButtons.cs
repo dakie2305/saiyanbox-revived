@@ -34,9 +34,9 @@ namespace SaiyanboxRevived.Content
 
         private static void createCustomButtons()
         {
-            GodPower spawnJiren = AssetManager.powers.clone("spawn_jiren", "$template_spawn_actor$");
+            GodPower spawnJiren = AssetManager.powers.clone("spawn_unit_jiren", "$template_spawn_actor$");
             spawnJiren.name = "Jiren";
-            spawnJiren.actor_asset_id = "human";
+            spawnJiren.actor_asset_id = "jiren";
             spawnJiren.path_icon = "god_powers/jiren";
             AddButton(spawnJiren);
             addToLocale(spawnJiren.id, spawnJiren.name, "Spawning Jiren into this world!");
@@ -45,7 +45,7 @@ namespace SaiyanboxRevived.Content
 
         private static void AddButton(GodPower power)
         {
-            AssetManager.powers.add(power);
+            //AssetManager.powers.add(power);
             myGodPowerList.Add(power);
             PowerButtonCreator.AddButtonToTab(PowerButtonCreator.CreateGodPowerButton(power.id, SpriteTextureLoader.getSprite("ui/Icons/" + power.path_icon)), _customTab);
         }
