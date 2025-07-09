@@ -18,18 +18,6 @@ internal static class CustomTraitActions
 {
     #region special effects
 
-    internal static bool kamuiSpecialEffect(BaseSimObject pTarget, WorldTile pTile)
-    {
-        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
-        if (pTarget.a.data.health <= pTarget.a.getMaxHealth() / 5 && Randy.randomChance(0.3f))
-        {
-            ActionLibrary.teleportRandom(pTarget, pTarget, pTile);
-            ActionLibrary.castBloodRain(pTarget, pTarget, pTile);
-            return true;
-        }
-        return false;
-    }
-
     // Young saiyan inner trait evolution logic
     public static bool Evo(BaseSimObject pTarget, WorldTile pTile = null)
     {
@@ -565,6 +553,53 @@ internal static class CustomTraitActions
         return true;
     }
 
+
+    internal static bool JirenAuraS(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        if (Randy.randomChance(0.05f))
+        {
+            ActionLibrary.restoreHealthOnHit(pTarget, pTarget);
+        }
+        Remove(pTarget);
+        Resist(pTarget);
+        Actor a = pTarget.a;
+        if (pTarget.a.attackedBy != null)
+        {
+            a.addStatusEffect("JirenAura", 5f);
+        }
+        return true;
+    }
+
+
+    internal static bool BrollyAuraS(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        if (pTarget.a.attackedBy != null)
+        {
+            a.addStatusEffect("BrollyAura", 5f);
+        }
+        return true;
+    }
+
+
+    internal static bool GokuAttackAura(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Actor a = pTarget.a;
+        if (pTarget.a.attackedBy != null)
+        {
+            if (pTarget.a.hasStatus("GokuDodge"))
+                a.addStatusEffect("GokuAttack", 1f);
+            else
+                a.addStatusEffect("GokuDodge", 5f);
+        }
+        return true;
+    }
+
+
+
     #endregion
 
     #region Attack Effect
@@ -747,8 +782,6 @@ internal static class CustomTraitActions
         }
         return false;
     }
-
-
 
 
 

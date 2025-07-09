@@ -656,6 +656,83 @@ namespace SaiyanboxRevived.Content
             addToList(breakingLimit);
             addToLocale(breakingLimit.id, "Breaking Limit", "The strongest Saiyan ever existed!", "Strength beyond the known universe.");
             #endregion
+
+            #region Jirens Aura
+            ActorTrait JirenAuraTrait = new ActorTrait()
+            {
+                id = "Jirens Aura",
+                path_icon = "ui/icons/JirenAura",
+                can_be_given = false,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupIdLegend,
+                rarity = Rarity.R3_Legendary,
+            };
+
+            JirenAuraTrait.action_special_effect = (WorldAction)Delegate.Combine(JirenAuraTrait.action_special_effect, new WorldAction(CustomTraitActions.JirenAuraS));
+
+            JirenAuraTrait.unlock(true);
+            AssetManager.traits.add(JirenAuraTrait);
+            addToList(JirenAuraTrait);
+            addToLocale(JirenAuraTrait.id, "Jirens OP", "Jiren's unmatched strength radiates through his aura.");
+            #endregion
+
+            #region Brolly Aura
+            ActorTrait BrollyAuraTrait = new ActorTrait()
+            {
+                id = "Brolly Aura",
+                path_icon = "ui/icons/BrollyAura",
+                can_be_given = false,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupIdLegend,
+                rarity = Rarity.R3_Legendary,
+            };
+
+            BrollyAuraTrait.action_special_effect = (WorldAction)Delegate.Combine(BrollyAuraTrait.action_special_effect, new WorldAction(CustomTraitActions.BrollyAuraS));
+
+            BrollyAuraTrait.unlock(true);
+            AssetManager.traits.add(BrollyAuraTrait);
+            addToList(BrollyAuraTrait);
+            addToLocale(BrollyAuraTrait.id, "Brolly OP", "Brolly's raw power tears through the battlefield.");
+            #endregion
+
+            #region GokuAttk
+            ActorTrait GokuAttk = new ActorTrait()
+            {
+                id = "GokuAttk",
+                path_icon = "ui/icons/GokuAttk",
+                can_be_given = false,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupIdLegend,
+                rarity = Rarity.R3_Legendary,
+            };
+            GokuAttk.action_special_effect = (WorldAction)Delegate.Combine(GokuAttk.action_special_effect, new WorldAction(CustomTraitActions.GokuAttackAura));
+            GokuAttk.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+            GokuAttk.unlock(true);
+            AssetManager.traits.add(GokuAttk);
+            addToList(GokuAttk);
+            addToLocale(GokuAttk.id, "Goku Attack", "A powerful strike used by Goku.");
+            #endregion
+
+            #region GogetaAttk
+            ActorTrait GogetaAttk = new ActorTrait()
+            {
+                id = "GogetaAttk",
+                path_icon = "ui/icons/GogetaAttk",
+                can_be_given = false,
+            };
+
+            GogetaAttk.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+
+            GogetaAttk.unlock(true);
+            AssetManager.traits.add(GogetaAttk);
+            addToList(GogetaAttk);
+            addToLocale(GogetaAttk.id, "Gogeta Attack", "A mighty attack delivered by the fusion warrior Gogeta.");
+            #endregion
+
+
         }
 
 
