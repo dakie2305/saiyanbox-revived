@@ -661,8 +661,7 @@ namespace SaiyanboxRevived.Content
             ActorTrait JirenAuraTrait = new ActorTrait()
             {
                 id = "Jirens Aura",
-                path_icon = "ui/icons/JirenAura",
-                can_be_given = false,
+                path_icon = $"{PathToTraitIcon}/JirenAura",
                 rate_inherit = NoChance,
                 rate_birth = NoChance,
                 group_id = TraitGroupIdLegend,
@@ -681,8 +680,7 @@ namespace SaiyanboxRevived.Content
             ActorTrait BrollyAuraTrait = new ActorTrait()
             {
                 id = "Brolly Aura",
-                path_icon = "ui/icons/BrollyAura",
-                can_be_given = false,
+                path_icon = $"{PathToTraitIcon}/BrollyAura",
                 rate_inherit = NoChance,
                 rate_birth = NoChance,
                 group_id = TraitGroupIdLegend,
@@ -701,8 +699,7 @@ namespace SaiyanboxRevived.Content
             ActorTrait GokuAttk = new ActorTrait()
             {
                 id = "GokuAttk",
-                path_icon = "ui/icons/GokuAttk",
-                can_be_given = false,
+                path_icon = $"{PathToTraitIcon}/GokuAttk",
                 rate_inherit = NoChance,
                 rate_birth = NoChance,
                 group_id = TraitGroupIdLegend,
@@ -720,8 +717,11 @@ namespace SaiyanboxRevived.Content
             ActorTrait GogetaAttk = new ActorTrait()
             {
                 id = "GogetaAttk",
-                path_icon = "ui/icons/GogetaAttk",
-                can_be_given = false,
+                path_icon = $"{PathToTraitIcon}/GokuAttk",
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupIdLegend,
+                rarity = Rarity.R3_Legendary,
             };
 
             GogetaAttk.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
@@ -736,8 +736,7 @@ namespace SaiyanboxRevived.Content
             ActorTrait godAbility = new ActorTrait()
             {
                 id = "godAbility",
-                path_icon = "ui/icons/GokuAttk",
-                can_be_given = false,
+                path_icon = $"{PathToTraitIcon}/GokuAttk",
                 rate_inherit = NoChance,
                 rate_birth = NoChance,
                 group_id = TraitGroupIdLegend,
@@ -756,8 +755,7 @@ namespace SaiyanboxRevived.Content
             ActorTrait JirenAttk = new ActorTrait()
             {
                 id = "Jiren",
-                path_icon = "ui/icons/Jiren",
-                can_be_given = false,
+                path_icon = $"{PathToTraitIcon}/Jiren",
                 rate_inherit = NoChance,
                 rate_birth = NoChance,
                 group_id = TraitGroupIdLegend,
@@ -777,8 +775,7 @@ namespace SaiyanboxRevived.Content
             ActorTrait BrollyAttk = new ActorTrait()
             {
                 id = "Brolly",
-                path_icon = "ui/icons/Brolly",
-                can_be_given = false,
+                path_icon = $"{PathToTraitIcon}/Brolly",
                 rate_inherit = NoChance,
                 rate_birth = NoChance,
                 group_id = TraitGroupIdLegend,
@@ -797,8 +794,7 @@ namespace SaiyanboxRevived.Content
             ActorTrait EscanorAttk = new ActorTrait()
             {
                 id = "Pride Mark",
-                path_icon = "ui/icons/Escanor",
-                can_be_given = false,
+                path_icon = $"{PathToTraitIcon}/Escanor",
                 rate_inherit = NoChance,
                 rate_birth = NoChance,
                 group_id = TraitGroupIdLegend,
@@ -817,8 +813,7 @@ namespace SaiyanboxRevived.Content
             ActorTrait BrollySSJ4 = new ActorTrait()
             {
                 id = "Broly SSJ4",
-                path_icon = "ui/icons/BrolySSJ4",
-                can_be_given = false,
+                path_icon = $"{PathToTraitIcon}/BrolySSJ4",
                 rate_inherit = NoChance,
                 rate_birth = NoChance,
                 group_id = TraitGroupIdLegend,
@@ -838,8 +833,7 @@ namespace SaiyanboxRevived.Content
             ActorTrait BrollySSJ4Aura = new ActorTrait()
             {
                 id = "Broly SSJ4 Aura",
-                path_icon = "ui/icons/BrollySSJ4",
-                can_be_given = false,
+                path_icon = $"{PathToTraitIcon}/BrollySSJ4",
                 rate_inherit = NoChance,
                 rate_birth = NoChance,
                 group_id = TraitGroupIdLegend,
@@ -854,7 +848,6 @@ namespace SaiyanboxRevived.Content
             addToList(BrollySSJ4Aura);
             addToLocale(BrollySSJ4Aura.id, "Broly SSJ4", "Radiating with primal energy, Broly unleashes his SSJ4 aura.");
             #endregion
-
 
         }
 
