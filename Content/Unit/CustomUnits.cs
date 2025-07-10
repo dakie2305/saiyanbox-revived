@@ -28,7 +28,6 @@ namespace SaiyanboxRevived.Content
             jiren.architecture_id = "civ_demon";
             jiren.banner_id = "civ_demon";
             jiren.use_phenotypes = true;
-            jiren.can_flip = true; //no flipping texture
             jiren.unit_other = true;
             jiren.has_baby_form = false; //no baby form of course
 
@@ -40,6 +39,7 @@ namespace SaiyanboxRevived.Content
             jiren.can_have_subspecies = false;
             jiren.inspect_home = false;
             jiren.flying = false;
+            jiren.disable_jump_animation = true;
             jiren.has_advanced_textures = false;
             jiren.can_be_surprised = false;
             jiren.can_turn_into_ice_one = false;
@@ -47,27 +47,34 @@ namespace SaiyanboxRevived.Content
             jiren.can_turn_into_demon_in_age_of_chaos = false;
             jiren.can_turn_into_zombie = false;
             jiren.has_soul = true;
+            jiren.actor_size = ActorSize.S13_Human;
             jiren.job = AssetLibrary<ActorAsset>.a<string>(new string[]
             {
-                 "decision"
+                 "dragon_job"
             });
-
+            jiren.shadow_texture = "unitShadow_7";
+            jiren.split_ai_update = false;
+            jiren.animation_speed_based_on_walk_speed = false;
+            jiren.experience_given = 100;
             jiren.base_stats = new();
             jiren.base_stats.set(CustomBaseStatsConstant.Lifespan, 0f);
             jiren.base_stats.set(CustomBaseStatsConstant.Health, 50000f);
             jiren.base_stats.set(CustomBaseStatsConstant.Damage, 1250f);
             jiren.base_stats.set(CustomBaseStatsConstant.Speed, 25f);
             jiren.base_stats.set(CustomBaseStatsConstant.Armor, 80f);
+            jiren.base_stats.set(CustomBaseStatsConstant.Stamina, 800f);
+            jiren.base_stats.set(CustomBaseStatsConstant.Mana, 800f);
             jiren.base_stats.set(CustomBaseStatsConstant.Scale, 0.04f);
+
 
             jiren.icon = "iconJiren";
             jiren.name_taxonomic_kingdom = "animalia";
-            jiren.name_taxonomic_phylum = "arthropoda";
-            jiren.name_taxonomic_class = "insecta";
-            jiren.name_taxonomic_order = "lepidoptera";
-            jiren.name_taxonomic_family = "nymphalidae";
-            jiren.name_taxonomic_genus = "danaus";
-            jiren.name_taxonomic_species = "plexippus";
+            jiren.name_taxonomic_phylum = "chordata";
+            jiren.name_taxonomic_class = "mammalia";
+            jiren.name_taxonomic_order = "primates";
+            jiren.name_taxonomic_family = "hominidae";
+            jiren.name_taxonomic_genus = "homo";
+            jiren.name_taxonomic_species = "sapiens";
             jiren.collective_term = "group_kaleidoscope";
             jiren.name_locale = "Jiren";
             jiren.traits = new();

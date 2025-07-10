@@ -58,6 +58,26 @@ namespace SaiyanboxRevived.Content
         {
             foreach (var godPower in myGodPowerList)
             {
+                if (!string.IsNullOrEmpty(godPower.drop_id))
+                {
+                    godPower.cached_drop_asset = AssetManager.drops.get(godPower.drop_id);
+                }
+                if (!string.IsNullOrEmpty(godPower.tile_type))
+                {
+                    godPower.cached_tile_type_asset = AssetManager.tiles.get(godPower.tile_type);
+                }
+                if (!string.IsNullOrEmpty(godPower.top_tile_type))
+                {
+                    godPower.cached_top_tile_type_asset = AssetManager.top_tiles.get(godPower.top_tile_type);
+                }
+                if (godPower.actor_asset_id != null)
+                {
+                    ActorAsset actorAsset = AssetManager.actor_library.get(godPower.actor_asset_id);
+                    if (actorAsset.power_id == null)
+                    {
+                        actorAsset.power_id = godPower.id;
+                    }
+                }
                 if (godPower.actor_asset_id != null)
                 {
                     ActorAsset actorAsset = AssetManager.actor_library.get(godPower.actor_asset_id);
