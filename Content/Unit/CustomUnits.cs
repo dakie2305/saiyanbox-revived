@@ -27,27 +27,40 @@ namespace SaiyanboxRevived.Content
             jiren.kingdom_id_civilization = "miniciv_demon";
             jiren.architecture_id = "civ_demon";
             jiren.banner_id = "civ_demon";
-            jiren.use_phenotypes = false;
-            jiren.can_flip = false; //no flipping texture
+            jiren.use_phenotypes = true;
+            jiren.can_flip = true; //no flipping texture
             jiren.unit_other = true;
             jiren.has_baby_form = false; //no baby form of course
 
             jiren.can_talk_with = false;
+            jiren.is_humanoid = true;
+            jiren.can_be_cloned = false;
+            jiren.can_be_killed_by_divine_light = false;
             jiren.control_can_talk = false;
             jiren.can_have_subspecies = false;
             jiren.inspect_home = false;
-            jiren.flying = true;
+            jiren.flying = false;
             jiren.has_advanced_textures = false;
+            jiren.can_be_surprised = false;
+            jiren.can_turn_into_ice_one = false;
+            jiren.can_turn_into_mush = false;
+            jiren.can_turn_into_demon_in_age_of_chaos = false;
+            jiren.can_turn_into_zombie = false;
             jiren.has_soul = true;
+            jiren.job = AssetLibrary<ActorAsset>.a<string>(new string[]
+            {
+                 "decision"
+            });
 
             jiren.base_stats = new();
-            jiren.base_stats.set(CustomBaseStatsConstant.Lifespan, 30f);
-            jiren.base_stats.set(CustomBaseStatsConstant.Health, 100f);
-            jiren.base_stats.set(CustomBaseStatsConstant.Damage, 15f);
-            jiren.base_stats.set(CustomBaseStatsConstant.Speed, 15f);
-            jiren.base_stats.set(CustomBaseStatsConstant.Scale, 0.09f);
+            jiren.base_stats.set(CustomBaseStatsConstant.Lifespan, 0f);
+            jiren.base_stats.set(CustomBaseStatsConstant.Health, 50000f);
+            jiren.base_stats.set(CustomBaseStatsConstant.Damage, 1250f);
+            jiren.base_stats.set(CustomBaseStatsConstant.Speed, 25f);
+            jiren.base_stats.set(CustomBaseStatsConstant.Armor, 80f);
+            jiren.base_stats.set(CustomBaseStatsConstant.Scale, 0.04f);
 
-            jiren.icon = "iconButterfly";
+            jiren.icon = "iconJiren";
             jiren.name_taxonomic_kingdom = "animalia";
             jiren.name_taxonomic_phylum = "arthropoda";
             jiren.name_taxonomic_class = "insecta";
@@ -56,8 +69,10 @@ namespace SaiyanboxRevived.Content
             jiren.name_taxonomic_genus = "danaus";
             jiren.name_taxonomic_species = "plexippus";
             jiren.collective_term = "group_kaleidoscope";
-            jiren.name_locale = "Bat";
-            jiren.icon = "iconButterfly";
+            jiren.name_locale = "Jiren";
+            jiren.traits = new();
+            jiren.traits.Add("Jirens Aura");
+            jiren.traits.Add("Jiren");
 
             jiren.animation_walk = new string[] { "walk_0", "walk_1", "walk_2", "walk_3" };
             jiren.animation_swim = new string[] { "swim_0", "swim_1", "swim_2", "swim_3", "swim_4", "swim_5" };

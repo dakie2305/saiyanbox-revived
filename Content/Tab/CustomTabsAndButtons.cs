@@ -36,6 +36,7 @@ namespace SaiyanboxRevived.Content
         {
             GodPower spawnJiren = AssetManager.powers.clone("spawn_unit_jiren", "$template_spawn_actor$");
             spawnJiren.name = "Jiren";
+            spawnJiren.rank = PowerRank.Rank4_awesome;
             spawnJiren.actor_asset_id = "jiren";
             spawnJiren.path_icon = "god_powers/jiren";
             AddButton(spawnJiren);
