@@ -732,6 +732,129 @@ namespace SaiyanboxRevived.Content
             addToLocale(GogetaAttk.id, "Gogeta Attack", "A mighty attack delivered by the fusion warrior Gogeta.");
             #endregion
 
+            #region godAbility
+            ActorTrait godAbility = new ActorTrait()
+            {
+                id = "godAbility",
+                path_icon = "ui/icons/GokuAttk",
+                can_be_given = false,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupIdLegend,
+                rarity = Rarity.R3_Legendary,
+            };
+
+            godAbility.action_special_effect = (WorldAction)Delegate.Combine(godAbility.action_special_effect, new WorldAction(CustomTraitActions.Technique));
+
+            godAbility.unlock(true);
+            AssetManager.traits.add(godAbility);
+            addToList(godAbility);
+            addToLocale(godAbility.id, "God's Technique", "A divine technique that transcends mortal limits.");
+            #endregion
+
+            #region Jiren
+            ActorTrait JirenAttk = new ActorTrait()
+            {
+                id = "Jiren",
+                path_icon = "ui/icons/Jiren",
+                can_be_given = false,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupIdLegend,
+                rarity = Rarity.R3_Legendary,
+            };
+
+            JirenAttk.action_special_effect = (WorldAction)Delegate.Combine(JirenAttk.action_special_effect, new WorldAction(CustomTraitActions.JirenATTK1));
+            JirenAttk.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+
+            JirenAttk.unlock(true);
+            AssetManager.traits.add(JirenAttk);
+            addToList(JirenAttk);
+            addToLocale(JirenAttk.id, "Jiren", "Limitless power condensed in one being.");
+            #endregion
+
+            #region Brolly
+            ActorTrait BrollyAttk = new ActorTrait()
+            {
+                id = "Brolly",
+                path_icon = "ui/icons/Brolly",
+                can_be_given = false,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupIdLegend,
+                rarity = Rarity.R3_Legendary,
+            };
+
+            BrollyAttk.action_special_effect = (WorldAction)Delegate.Combine(BrollyAttk.action_special_effect, new WorldAction(CustomTraitActions.BrollyATTK1));
+
+            BrollyAttk.unlock(true);
+            AssetManager.traits.add(BrollyAttk);
+            addToList(BrollyAttk);
+            addToLocale(BrollyAttk.id, "Brolly", "Unleashed fury of the legendary Super Saiyan.");
+            #endregion
+
+            #region Pride Mark
+            ActorTrait EscanorAttk = new ActorTrait()
+            {
+                id = "Pride Mark",
+                path_icon = "ui/icons/Escanor",
+                can_be_given = false,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupIdLegend,
+                rarity = Rarity.R3_Legendary,
+            };
+
+            EscanorAttk.action_special_effect = (WorldAction)Delegate.Combine(EscanorAttk.action_special_effect, new WorldAction(CustomTraitActions.EscanorATTK1));
+
+            EscanorAttk.unlock(true);
+            AssetManager.traits.add(EscanorAttk);
+            addToList(EscanorAttk);
+            addToLocale(EscanorAttk.id, "Pride Mark", "The blazing pride of the Lion’s Sin.");
+            #endregion
+
+            #region Broly SSJ4
+            ActorTrait BrollySSJ4 = new ActorTrait()
+            {
+                id = "Broly SSJ4",
+                path_icon = "ui/icons/BrolySSJ4",
+                can_be_given = false,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupIdLegend,
+                rarity = Rarity.R3_Legendary,
+            };
+
+            BrollySSJ4.action_special_effect = (WorldAction)Delegate.Combine(BrollySSJ4.action_special_effect, new WorldAction(CustomTraitActions.BrolySSJ4Attk));
+            BrollySSJ4.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+
+            BrollySSJ4.unlock(true);
+            AssetManager.traits.add(BrollySSJ4);
+            addToList(BrollySSJ4);
+            addToLocale(BrollySSJ4.id, "Broly SSJ4", "A devastating form of pure rage and primal energy.");
+            #endregion
+
+            #region Broly SSJ4 Aura
+            ActorTrait BrollySSJ4Aura = new ActorTrait()
+            {
+                id = "Broly SSJ4 Aura",
+                path_icon = "ui/icons/BrollySSJ4",
+                can_be_given = false,
+                rate_inherit = NoChance,
+                rate_birth = NoChance,
+                group_id = TraitGroupIdLegend,
+                rarity = Rarity.R3_Legendary,
+            };
+
+            BrollySSJ4Aura.action_special_effect = (WorldAction)Delegate.Combine(BrollySSJ4Aura.action_special_effect, new WorldAction(CustomTraitActions.BrolySSJ4AuraS));
+            BrollySSJ4Aura.action_attack_target = new AttackAction(CustomTraitActions.KiPunch);
+
+            BrollySSJ4Aura.unlock(true);
+            AssetManager.traits.add(BrollySSJ4Aura);
+            addToList(BrollySSJ4Aura);
+            addToLocale(BrollySSJ4Aura.id, "Broly SSJ4", "Radiating with primal energy, Broly unleashes his SSJ4 aura.");
+            #endregion
+
 
         }
 

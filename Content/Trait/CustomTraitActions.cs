@@ -598,6 +598,83 @@ internal static class CustomTraitActions
         return true;
     }
 
+    internal static bool Technique(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Remove(pTarget);
+        Resist(pTarget);
+        if (Randy.randomChance(0.05f))
+        {
+            ActionLibrary.restoreHealthOnHit(pTarget, pTarget);
+        }
+        if (pTarget.a.attackedBy != null)
+        {
+            pTarget.a.addStatusEffect("GokuDodge", 5f);
+        }
+        return true;
+    }
+
+
+    internal static bool JirenATTK1(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        Remove(pTarget);
+        Resist(pTarget);
+        if (pTarget.a.attackedBy != null)
+        {
+            pTarget.a.addStatusEffect("JirenAttack", 1f);
+        }
+        return true;
+    }
+
+    internal static bool BrollyATTK1(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        if (pTarget.a.attackedBy != null)
+        {
+            pTarget.a.addStatusEffect("BrollyAttack", 1f);
+        }
+        return true;
+    }
+
+    internal static bool EscanorATTK1(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        if (pTarget.a.attackedBy != null)
+        {
+            pTarget.a.addStatusEffect("EscanorAttack", 1f);
+        }
+        return true;
+    }
+
+    internal static bool BrolySSJ4Attk(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        if (Randy.randomChance(0.05f))
+        {
+            ActionLibrary.restoreHealthOnHit(pTarget, pTarget);
+        }
+        Remove(pTarget);
+        Resist(pTarget);
+        if (pTarget.a.attackedBy != null)
+        {
+            pTarget.a.addStatusEffect("BrolySSJ4Attack", 1f);
+        }
+        return true;
+    }
+
+
+    internal static bool BrolySSJ4AuraS(BaseSimObject pTarget, WorldTile pTile)
+    {
+        if (pTarget == null || pTarget.a == null || !pTarget.a.isAlive()) return false;
+        if (pTarget.a.attackedBy != null)
+        {
+            pTarget.a.addStatusEffect("BrolySSJ4Attack", 1f);
+        }
+        return true;
+    }
+
+
 
 
     #endregion
@@ -782,7 +859,6 @@ internal static class CustomTraitActions
         }
         return false;
     }
-
 
 
 
